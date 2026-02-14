@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Special ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Lock Screen */
+#lockScreen{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ff4e75,#ff9a9e);
+    color:white;
+    text-align:center;
+}
+
+#lockScreen input{
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    margin:10px;
+    text-align:center;
+}
+
+#lockScreen button{
+    padding:8px 20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4e75;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Main Website */
+#mainContent{
+    display:none;
+    background:linear-gradient(135deg,#ff4e75,#ff9a9e);
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    padding:30px;
+    margin:20px auto;
+    max-width:400px;
+}
+
+img,video{
+    width:100%;
+    border-radius:15px;
+    margin-top:15px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff4e75;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Password Lock Screen -->
+<div id="lockScreen">
+    <h1>Enter Secret Password ❤️</h1>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Unlock 💕</button>
+    <p id="error" style="margin-top:10px;"></p>
+</div>
+
+<!-- Main Website -->
+<div id="mainContent">
+
+    <div class="container">
+        <h1>Happy Valentine’s Day ❤️</h1>
+        <p>You are my forever and always 💖</p>
+        <button onclick="showMessage()">Click for Surprise 🎁</button>
+        <p id="msg"></p>
+    </div>
+
+    <div class="container">
+        <h2>Our Special Memory 📸</h2>
+        <img src="image.jpg" alt="Our Photo">
+    </div>
+
+    <div class="container">
+        <h2>Just For You 🎥</h2>
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const correctPassword = "130605"; // CHANGE PASSWORD HERE
+
+function checkPassword(){
+    const userInput = document.getElementById("passwordInput").value;
+
+    if(userInput === correctPassword){
+        document.getElementById("lockScreen").style.display="none";
+        document.getElementById("mainContent").style.display="block";
+        document.getElementById("bgMusic").play();
+    }else{
+        document.getElementById("error").innerHTML="Wrong Password 💔";
+    }
+}
+
+function showMessage(){
+    document.getElementById("msg").innerHTML="I Hate You Bestfriend ❤️🌹";
+}
+</script>
+
+</body>
+</html>
